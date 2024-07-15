@@ -3,11 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        a {
+            text-decoration: none;
+            color: #4CAF50;
+            font-size: 18px;
+            margin: 10px;
+            padding: 10px 15px;
+            border: 2px solid #4CAF50;
+            border-radius: 4px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        a:hover {
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
 </head>
 <body>
-    <h1>Hello World</h1>
-    <a th:href="@{/products}">Products</a>
-    <a th:href="@{/products/create-product}">Create Product</a>
-
+<h1>Hello World</h1>
+<a th:href="@{/products/}">Products</a>
+<a th:href="@{/products/create-product}">Create Product</a>
 </body>
 </html>

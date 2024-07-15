@@ -2,13 +2,59 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Product Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 100%;
+        }
+        .container h1 {
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .product-detail {
+            margin: 10px 0;
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+        .product-detail span {
+            font-weight: bold;
+        }
+        .product-detail .value {
+            font-weight: normal;
+        }
+    </style>
 </head>
 <body>
-    <span th:text="${product.getProductId()}"></span>
-    <span th:text="${product.getProductName()}"></span>
-    <span th:text="${product.getPrice()}"></span>
-    <span th:text="${product.getDescription()}"></span>
-
+<div class="container">
+    <h1>Product Details</h1>
+    <div class="product-detail">
+        <span>Product ID:</span> <span class="value" th:text="${product.getProductId()}"></span>
+    </div>
+    <div class="product-detail">
+        <span>Product Name:</span> <span class="value" th:text="${product.getProductName()}"></span>
+    </div>
+    <div class="product-detail">
+        <span>Price:</span> <span class="value" th:text="${product.getPrice()}"></span>
+    </div>
+    <div class="product-detail">
+        <span>Description:</span> <span class="value" th:text="${product.getDescription()}"></span>
+    </div>
+</div>
 </body>
 </html>

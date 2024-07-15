@@ -31,4 +31,24 @@ public class RestProductClient {
                 .body(Product.class);
     }
 
+    public Product createProduct(Product product) {
+        return restClient.post()
+                .uri("/product/")
+                .body(product)
+                .retrieve()
+                .body(Product.class);
+    }
+    public Product updateProduct(Long productId, Product product) {
+        return restClient.put()
+                .uri("/product/{id}", productId)
+                .body(product)
+                .retrieve()
+                .body(Product.class);
+    }
+
+    public void deleteProduct(Long productId) {
+        restClient.delete().uri("/product/{productId}", productId)
+                .retrieve();
+    }
+
 }
