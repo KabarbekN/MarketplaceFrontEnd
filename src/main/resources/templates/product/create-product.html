@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create product Page</title>
+</head>
+<body>
+    <form method="POST"
+          th:action="@{/products/save-product}"
+          th:object="${product}">
+
+            <input type="text"  placeholder="Product name">
+            <input type="number" placeholder="Product price">
+            <input type="text" placeholder="Product description">
+
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
