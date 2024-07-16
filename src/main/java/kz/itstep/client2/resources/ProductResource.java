@@ -1,5 +1,6 @@
 package kz.itstep.client2.resources;
 
+
 import kz.itstep.client2.model.Product;
 import kz.itstep.client2.rest.RestProductClient;
 import lombok.RequiredArgsConstructor;
@@ -8,32 +9,36 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping("/products")
+@RequestMapping("/product/{productId}")
 @RequiredArgsConstructor
 public class ProductResource {
-    private final RestProductClient restProductClient;
-
-    @GetMapping("/")
-    public String getAllProductsPage(Model model){
-        model.addAttribute("products", restProductClient.getAllProducts());
-        return "product/products";
+    @ModelAttribute("updatedProduct")
+    public Product getProductById(@PathVariable Long productId){
+        return restProductClient.getProductById(productId);
     }
 
-    @GetMapping("/details/{id}")
-    public String getProductDetailsPageById(@PathVariable Long id, Model model){
-        model.addAttribute("product", restProductClient.getProductById(id));
+    private final RestProductClient restProductClient;
+
+    @GetMapping
+    public String updateProductPage(@ModelAttribute("updatedProduct") @PathVariable Long productId){
+        return "/product/create-product";
+    }
+
+    @PutMapping
+    public Product updateProduct(@PathVariable Long productId, @RequestBody Product product){
+        return restProductClient.updateProduct(productId, product);
+    }
+
+    @GetMapping("/details")
+    public String getProductDetailsPageById(@PathVariable Long productId, Model model){
+        model.addAttribute("product", restProductClient.getProductById(productId));
         return "product/details";
     }
 
-    @GetMapping("/create-product")
-    public String createProductPage(Model model){
-        model.addAttribute("product", new Product());
-        return "product/create-product";
-    }
 
-    @PostMapping("/create-product")
-    public String createProduct(@ModelAttribute("product") Product product){
-        restProductClient.createProduct(product);
-        return "redirect:";
+    @DeleteMapping
+    public String deleteProductById(@PathVariable Long productId){
+        restProductClient.deleteProduct(productId);
+        return "redirect:/products/";
     }
 }

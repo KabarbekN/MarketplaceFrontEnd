@@ -1,5 +1,14 @@
 spring:
   application:
     name: Client2
+  security:
+    user:
+      name: Junior
+      password: 123456
+  mvc:
+    hiddenmethod:
+      filter:
+        enabled: true
 server:
   port: 8081
+

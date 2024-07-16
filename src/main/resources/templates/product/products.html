@@ -69,7 +69,7 @@
         <td th:text="${product.getProductName()}"></td>
         <td th:text="${product.getDescription()}"></td>
         <td th:text="${product.getPrice()}"></td>
-        <td><a th:href="@{/products/details/{id}(id=${product.getProductId()})}">Details</a></td>
+        <td><a th:href="@{/product/{id}/details(id=${product.getProductId()})}">Details</a></td>
     </tr>
     </tbody>
 </table>
