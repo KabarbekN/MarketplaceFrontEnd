@@ -3,6 +3,7 @@ package kz.itstep.client2.rest;
 import kz.itstep.client2.model.Product;
 import lombok.RequiredArgsConstructor;
 import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.client.support.BasicAuthenticationInterceptor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.client.RestClient;

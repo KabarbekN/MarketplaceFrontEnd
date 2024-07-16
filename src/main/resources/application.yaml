@@ -5,10 +5,13 @@ spring:
     user:
       name: Junior
       password: 123456
+      roles: ADMIN
   mvc:
     hiddenmethod:
       filter:
         enabled: true
 server:
   port: 8081
+
+basicURL: http://localhost:8080
 
